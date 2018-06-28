@@ -77,12 +77,12 @@ public class McpService {
     }
 
 
-    public JsonNode getData() throws Exception {
+    public String getData() throws Exception {
         Map<String, Object> data = getSecret();
         String signature = SignatureUtils.getSignature(requestToSign, (String) data.get(MCPKeys.NBC_PRIVATE_KEY_NAME));
         String getParametersSuffixPageNo = "id=" + data.get(MCPKeys.NBC_PUBLIC_KEY_NAME) + "&ts=" + timestamp + "&sgn=" + signature + "&page_sz=50&page_no=1";
-        apiCall(sampleXml, getParametersSuffixPageNo);
-        return null;
+
+        return apiCall(sampleXml, getParametersSuffixPageNo);
     }
 
     String apiCall(String payload, String getParameters) {

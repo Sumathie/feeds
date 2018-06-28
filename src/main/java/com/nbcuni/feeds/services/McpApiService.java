@@ -14,7 +14,7 @@ public class McpApiService {
 
     public void runFeeds() {
         try {
-            mcpService.getData();
+            System.out.println("Get all videos :    " + mcpService.getData());
         } catch (Exception e) {
             e.printStackTrace();
         }
